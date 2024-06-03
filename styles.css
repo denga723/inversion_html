@@ -1,0 +1,59 @@
+/* Common Navigation Bar CSS */
+body {
+    font-family: 'Verdana', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px 0;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+}
+
+nav li {
+    position: relative;
+}
+
+nav a, nav .expandable {
+    text-decoration: none;
+    color: #ffcc00;
+    font-size: 20px;
+    cursor: pointer;
+    font-family: 'Verdana', sans-serif;
+}
+
+nav a:hover, nav .expandable:hover {
+    text-decoration: underline;
+}
+
+.submenu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+nav li:hover .submenu {
+    display: flex;
+}
+
+.submenu li {
+    margin: 5px 0;
+}
