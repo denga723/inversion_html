@@ -7173,14 +7173,20 @@
         const cleanColor = namedColor || rawColor;
         if (cleanColor.startsWith("#")) {
           const hex = cleanColor.substring(1);
-          if (hex.length === 3) {
+          if (hex.length === 3 || hex.length === 4) {
             red = parseInt(hex[0] + hex[0], 16);
             green = parseInt(hex[1] + hex[1], 16);
             blue = parseInt(hex[2] + hex[2], 16);
-          } else if (hex.length === 6) {
+            if (hex.length === 4) {
+              alpha = parseInt(hex[3] + hex[3], 16) / 255;
+            }
+          } else if (hex.length === 6 || hex.length === 8) {
             red = parseInt(hex.substring(0, 2), 16);
             green = parseInt(hex.substring(2, 4), 16);
             blue = parseInt(hex.substring(4, 6), 16);
+            if (hex.length === 8) {
+              alpha = parseInt(hex.substring(6, 8), 16) / 255;
+            }
           }
         } else if (cleanColor.startsWith("rgba")) {
           const rgbaValues = cleanColor.match(/rgba\(([^)]+)\)/)[1].split(",");
